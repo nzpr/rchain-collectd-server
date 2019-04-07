@@ -19,5 +19,5 @@ resource "google_dns_record_set" "nginx_vhost_domain" {
   managed_zone = "rchain-dev"
   type = "CNAME"
   ttl = 300
-  rrdatas = ["build.rchain-dev.tk"]
+  rrdatas = ["build.rchain-dev.tk."]
 }
