@@ -9,6 +9,8 @@ $CONFIG['graph_minmax'] = false;
 
 $CONFIG['width'] = 700;
 $CONFIG['height'] = 300;
+$CONFIG['detail-width'] = 1000;
+$CONFIG['detail-height'] = 500;
 
 $CONFIG['cat']['testnet'] = '/^node\d+\.testnet\.rchain-dev\.tk$/';
 
