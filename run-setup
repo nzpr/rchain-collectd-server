@@ -23,7 +23,7 @@ systemctl restart collectd
 
 pushd /var/www/html
 if [[ ! -d .git ]]; then
-	rm -rf * .*
+	rm -rf {,.[!.],..?}*
 	git clone -n https://github.com/rchain/CGP.git .
 fi
 git checkout "${CGP_GITREV:-master}"
