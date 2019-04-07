@@ -13,3 +13,11 @@ resource "google_compute_firewall" "fw_collectd" {
     ports = [ 25826 ]
   }
 }
+
+resource "google_dns_record_set" "nginx_vhost_domain" {
+  name = "collectd.rchain-dev.tk."
+  managed_zone = "rchain-dev"
+  type = "CNAME"
+  ttl = 300
+  rrdatas = ["build.rchain-dev.tk"]
+}
