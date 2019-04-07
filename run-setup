@@ -14,8 +14,20 @@ if dpkg --compare-versions $librrd_ver lt '1.7.1'; then
 fi
 
 apt install -y --no-install-recommends \
-    apt-transport-https gnupg2 \
-    collectd liboping0
+	apt-transport-https gnupg2 \
+	collectd liboping0 \
+	apache2 php php-json
 
 install -C -m644 collectd.conf -t /etc/collectd/
 systemctl restart collectd
+
+pushd /var/www/html
+if [[ ! -d .git ]]; then
+	rm -rf * .*
+	git clone -n https://github.com/rchain/CGP.git .
+fi
+git checkout "${CGP_GITREV:-master}"
+git pull
+popd
+
+install -C -m644 config.local.php -t /var/www/html/conf/
