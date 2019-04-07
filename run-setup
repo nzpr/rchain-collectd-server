@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e -o pipefail
+
+apt install -y librrd8
+librrd_ver="$(dpkg-query -W -f '${Version}' librrd8)"
+if dpkg --compare-versions $librrd_ver lt '1.7.1'; then
+	pushd /tmp
+	librrd_url='http://us-central1.gce.archive.ubuntu.com/ubuntu/pool/main/r/rrdtool/librrd8_1.7.1-1_amd64.deb'
+	curl -fsSLO "$librrd_url"
+	apt install -y "$(basename "$librrd_url")"
+	rm "$(basename "$librrd_url")"
+	popd
+fi
+
+apt install -y --no-install-recommends \
+    apt-transport-https gnupg2 \
+    collectd liboping0
+
+install -C -m644 collectd.conf -t /etc/collectd/
+systemctl restart collectd
