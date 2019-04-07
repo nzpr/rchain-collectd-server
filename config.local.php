@@ -31,6 +31,21 @@ $CONFIG['overview_filter_fn'] = function ($item) {
 	return true;
 };
 
+$CONFIG['term'] = array(
+	'1 hour'   => 3600 * 1,
+	'2 hours'  => 3600 * 2,
+	'4 hours'  => 3600 * 4,
+	'12 hours' => 3600 * 12,
+	'1 day'    => 86400,
+	'2 days'   => 86400 * 2,
+	'3 days'   => 86400 * 4,
+	'week'     => 86400 * 7,
+	'2 weeks'  => 86400 * 14,
+	'month'    => 86400 * 31,
+	'quarter'  => 86400 * 31 * 3,
+	'year'     => 86400 * 365,
+);
+
 $CONFIG['showload'] = true;
 $CONFIG['showmem'] = true;
 $CONFIG['showtime'] = true;
