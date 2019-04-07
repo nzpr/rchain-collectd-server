@@ -7,5 +7,5 @@ $CONFIG['showload'] = true;
 $CONFIG['showmem'] = true;
 $CONFIG['showtime'] = true;
 $CONFIG['graph_type'] = 'hybrid';
-$CONFIG['graph_smooth'] = true;
-$CONFIG['graph_minmax'] = true;
+$CONFIG['graph_smooth'] = false;
+$CONFIG['graph_minmax'] = false;
