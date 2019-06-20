@@ -14,6 +14,7 @@ $CONFIG['detail-height'] = 500;
 
 $CONFIG['cat']['testnet'] = '/^node\d+\.testnet\.rchain-dev\.tk$/';
 $CONFIG['cat']['devnet'] = '/^node\d+\.devnet\.rchain-dev\.tk$/';
+$CONFIG['cat']['devnet2'] = '/^node\d+\.devnet2\.rchain-dev\.tk$/';
 
 $CONFIG['term'] = array(
 	'1 hour'   => 3600 * 1,
