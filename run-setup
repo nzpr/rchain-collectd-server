@@ -19,6 +19,9 @@ apt install -y --no-install-recommends \
 	apache2 php php-json rrdtool
 
 install -C -m644 collectd.conf -t /etc/collectd/
+install -d -m755 /etc/collectd/collectd.conf.d/
+install -C -m644 collectd.conf.d/*.conf -t /etc/collectd/collectd.conf.d/
+
 systemctl restart collectd
 
 pushd /var/www/html
