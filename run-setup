@@ -16,11 +16,14 @@ fi
 apt install -y --no-install-recommends \
 	apt-transport-https gnupg2 \
 	collectd collectd-utils liboping0 \
-	apache2 php php-json rrdtool
+	apache2 php php-json rrdtool \
+	libpython2.7 python-requests
 
 install -C -m644 collectd.conf -t /etc/collectd/
 install -d -m755 /etc/collectd/collectd.conf.d/
 install -C -m644 collectd.conf.d/*.conf -t /etc/collectd/collectd.conf.d/
+install -d -m755 /etc/collectd/plugins-python/
+install -C -m644 plugins-python/* -t /etc/collectd/plugins-python/
 
 systemctl restart collectd
 
